@@ -1,0 +1,81 @@
+﻿@{
+    ViewData["Title"] = "Produtos";
+}
+@model ProdutoModel
+
+<div class="text-center">
+    <h1 class="display-4">Produtos</h1>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Codigo</th>
+            <th scope="col">Qtnd</th>
+            <th scope="col">R$ Compra</th>
+            <th scope="col">R$ Venda</th>
+            <th scope="col">Estoque min.</th>
+            <th scope="col">Validade</th>
+            <th scope="col">Localização</th>
+            <th scope="col">Obsoleto</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Rolamento</td>
+            <td>1244646234</td>
+            <td>45</td>
+            <td>120.00</td>
+            <td>150.00</td>
+            <td>15</td>
+            <td>Indefinido</td>
+            <td>Serra</td>
+            <td>Não</td>
+            <td>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <a role="button" class="btn btn-primary" asp-controller="Produtos" asp-action="Criar">Editar</a>
+                    <a role="button" class="btn btn-danger" asp-controller="Produtos" asp-action="Apagar">Apagar</a>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Rolamento</td>
+            <td>1244646234</td>
+            <td>45</td>
+            <td>120.00</td>
+            <td>150.00</td>
+            <td>15</td>
+            <td>Indefinido</td>
+            <td>Serra</td>
+            <td>Não</td>
+            <td>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <a role="button" class="btn btn-primary" asp-controller="Produtos" asp-action="Criar">Editar</a>
+                    <a role="button" class="btn btn-danger" asp-controller="Produtos" asp-action="Apagar">Apagar</a>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Rolamento</td>
+            <td>1244646234</td>
+            <td>45</td>
+            <td>120.00</td>
+            <td>150.00</td>
+            <td>15</td>
+            <td>Indefinido</td>
+            <td>Serra</td>
+            <td>Não</td>
+            <td>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <a role="button" class="btn btn-primary" asp-controller="Produtos" asp-action="Criar">Editar</a>
+                    <a role="button" class="btn btn-danger" asp-controller="Produtos" asp-action="Apagar">Apagar</a>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
