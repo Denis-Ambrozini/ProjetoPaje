@@ -12,5 +12,19 @@ namespace ProjetoPaje.Controllers
         {
             return View();
         }
+
+        public IActionResult Cancelar()
+        {
+            return View();
+        }
+
+        public IActionResult Editar()
+        {
+            return View();
+        }
+        public IActionResult ApagarConfimacao()
+        {
+            return View();
+        }
     }
 }

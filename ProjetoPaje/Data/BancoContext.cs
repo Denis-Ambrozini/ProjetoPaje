@@ -1,6 +1,14 @@
-﻿namespace ProjetoPaje.Data
+﻿using Microsoft.EntityFrameworkCore;
+using ProjetoPaje.Models;
+
+namespace ProjetoPaje.Data
 {
-    public class BancoContext
+    public class BancoContext : DbContext
     {
+        public BancoContext(DbContextOptions<BancoContext> options) : base(options)
+        {
+        }
+
+        public DbSet<ProdutoModel> Produtos { get; set; }
     }
 }
