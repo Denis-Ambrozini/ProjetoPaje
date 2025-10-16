@@ -8,7 +8,7 @@ builder.Services.AddControllersWithViews();
 
 // Configurar o DbContext para usar SQLite em memória
 builder.Services.AddDbContext<BancoContext>(options =>
-    options.UseSqlite("DataSource=:memory:"));
+    options.UseSqlite("DataSource=file::memory:?cache=shared"));
 
 var app = builder.Build();
 

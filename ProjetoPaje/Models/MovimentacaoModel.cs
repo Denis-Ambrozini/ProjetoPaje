@@ -11,7 +11,7 @@ namespace ProjetoPaje.Models
         public DateTime Data { get; set; } = DateTime.Now;
 
         [Required(ErrorMessage = "O tipo da movimentação é obrigatório.")]
-        public string Tipo { get; set; } // "Entrada" ou "Saída"
+        public string Tipo { get; set; } = string.Empty; // "Entrada" ou "Saída"
 
         [Required(ErrorMessage = "A quantidade é obrigatória.")]
         [Range(1, int.MaxValue, ErrorMessage = "A quantidade deve ser maior que zero.")]
@@ -20,7 +20,7 @@ namespace ProjetoPaje.Models
         // Relacionamento com Produto
         [Required]
         public int ProdutoId { get; set; }
-        public virtual ProdutoModel Produto { get; set; }
+        public virtual ProdutoModel Produto { get; set; } = null!;
     }
 }
 

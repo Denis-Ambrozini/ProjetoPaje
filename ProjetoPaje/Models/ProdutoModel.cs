@@ -7,10 +7,10 @@ namespace ProjetoPaje.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = "O nome do produto é obrigatório.")]
-        public string Nome { get; set; }
+        public string Nome { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "A categoria é obrigatória.")]
-        public string Categoria { get; set; }
+        public string Categoria { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "A quantidade atual é obrigatória.")]
         [Range(0, int.MaxValue, ErrorMessage = "A quantidade deve ser um número positivo.")]
@@ -20,7 +20,7 @@ namespace ProjetoPaje.Models
         [Range(1, int.MaxValue, ErrorMessage = "A quantidade mínima deve ser maior que zero.")]
         public int QuantidadeMinima { get; set; }
 
-        public virtual ICollection<MovimentacaoModel> Movimentacoes { get; set; }
+        public virtual ICollection<MovimentacaoModel> Movimentacoes { get; set; } = new List<MovimentacaoModel>();
     }
 }
 
