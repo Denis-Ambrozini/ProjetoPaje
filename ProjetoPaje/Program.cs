@@ -1,9 +1,18 @@
+using Microsoft.EntityFrameworkCore;
+using ProjetoPaje.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+var connectionString = builder.Configuration.GetConnectionString("DataBase");
+
+
+builder.Services.AddDbContext<BancoContext>(options =>
+    options.UseSqlServer(connectionString));
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
