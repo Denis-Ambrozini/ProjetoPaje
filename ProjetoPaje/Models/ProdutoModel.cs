@@ -1,28 +1,26 @@
-﻿using static ProjetoPaje.Models.CategoriaModel;
-using static ProjetoPaje.Models.FornecedorModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace ProjetoPaje.Models
 {
     public class ProdutoModel
     {
-            public int Id { get; set; }
-            public string Nome { get; set; }
-            public string CodigoBarras { get; set; }
-            public int Quantidade { get; set; }
-            public decimal PrecoCompra { get; set; }
-            public decimal PrecoVenda { get; set; }
-            public int EstoqueMinimo { get; set; }
-            public DateTime? Validade { get; set; }
-            public string Localizacao { get; set; } // prateleira/corredor
-            public bool Obsoleto { get; set; } // se já não deve mais ser comprado
+        public int Id { get; set; }
 
-            // Relacionamentos
-            public int CategoriaId { get; set; }
-            public CategoriaModel Categoria { get; set; }
+        [Required(ErrorMessage = "O nome do produto é obrigatório.")]
+        public string Nome { get; set; }
 
-            public int FornecedorId { get; set; }
-            public FornecedorModel Fornecedor { get; set; }
+        [Required(ErrorMessage = "A categoria é obrigatória.")]
+        public string Categoria { get; set; }
 
-            //public ICollection<Movimentacao> Movimentacoes { get; set; }
-        }
- }
+        [Required(ErrorMessage = "A quantidade atual é obrigatória.")]
+        [Range(0, int.MaxValue, ErrorMessage = "A quantidade deve ser um número positivo.")]
+        public int Quantidade { get; set; }
+
+        [Required(ErrorMessage = "A quantidade mínima é obrigatória.")]
+        [Range(1, int.MaxValue, ErrorMessage = "A quantidade mínima deve ser maior que zero.")]
+        public int QuantidadeMinima { get; set; }
+
+        public virtual ICollection<MovimentacaoModel> Movimentacoes { get; set; }
+    }
+}
+

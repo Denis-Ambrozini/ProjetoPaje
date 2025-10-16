@@ -1,23 +1,26 @@
-﻿using static ProjetoPaje.Models.ProdutoModel;
-using static ProjetoPaje.Models.UsuarioModel;
+using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace ProjetoPaje.Models
 {
     public class MovimentacaoModel
     {
-            public int Id { get; set; }
-            public DateTime Data { get; set; } = DateTime.Now;
-            public string Tipo { get; set; } // "Entrada", "Saída", "Ajuste"
-            public int Quantidade { get; set; }
-            public string Observacao { get; set; }
+        public int Id { get; set; }
 
-            // Relacionamentos
-            public int ProdutoId { get; set; }
-            public ProdutoModel Produto { get; set; }
+        [Required]
+        public DateTime Data { get; set; } = DateTime.Now;
 
-            public int UsuarioId { get; set; }
-            public UsuarioModel Usuario { get; set; }
-        }
+        [Required(ErrorMessage = "O tipo da movimentação é obrigatório.")]
+        public string Tipo { get; set; } // "Entrada" ou "Saída"
 
-    
+        [Required(ErrorMessage = "A quantidade é obrigatória.")]
+        [Range(1, int.MaxValue, ErrorMessage = "A quantidade deve ser maior que zero.")]
+        public int Quantidade { get; set; }
+
+        // Relacionamento com Produto
+        [Required]
+        public int ProdutoId { get; set; }
+        public virtual ProdutoModel Produto { get; set; }
+    }
 }
+

@@ -6,13 +6,18 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+// Configurar o DbContext para usar SQLite em memória
+builder.Services.AddDbContext<BancoContext>(options =>
+    options.UseSqlite("DataSource=:memory:"));
+
 var app = builder.Build();
 
-var connectionString = builder.Configuration.GetConnectionString("DataBase");
-
-
-builder.Services.AddDbContext<BancoContext>(options =>
-    options.UseSqlServer(connectionString));
+// Garante que o banco de dados seja criado para SQLite em memória
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<BancoContext>();
+    dbContext.Database.EnsureCreated();
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -30,3 +35,4 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+

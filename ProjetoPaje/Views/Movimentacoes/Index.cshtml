@@ -1,0 +1,54 @@
+@model IEnumerable<ProjetoPaje.Models.MovimentacaoModel>
+
+@{
+    ViewData["Title"] = "Movimentações";
+}
+
+<h1>Listagem de Movimentações</h1>
+
+<p>
+    <a asp-action="Criar" class="btn btn-primary">Registrar Nova Movimentação</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Produto.Nome)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Produto.Nome)
+            </td>
+            <td>
+                <a asp-action="Detalhes" asp-route-id="@item.Id" class="btn btn-sm btn-info">Detalhes</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+

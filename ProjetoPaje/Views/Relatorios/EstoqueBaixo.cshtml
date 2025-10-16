@@ -1,0 +1,61 @@
+@model IEnumerable<ProjetoPaje.Models.ProdutoModel>
+
+@{
+    ViewData["Title"] = "Estoque Baixo";
+}
+
+<h1>Relatório de Estoque Baixo</h1>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Categoria)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Quantidade)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QuantidadeMinima)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="table-danger">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Categoria)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantidade)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QuantidadeMinima)
+                    </td>
+                    <td>
+                        <a asp-controller="Produtos" asp-action="Detalhes" asp-route-id="@item.Id" class="btn btn-sm btn-info">Detalhes</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Não há produtos com estoque abaixo do mínimo.</p>
+}
+
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Voltar para Relatórios</a>
+</div>
+

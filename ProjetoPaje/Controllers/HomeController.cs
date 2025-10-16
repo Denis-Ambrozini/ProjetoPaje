@@ -6,28 +6,12 @@ namespace ProjetoPaje.Controllers
 {
     public class HomeController : Controller
     {
-
         public IActionResult Index()
         {
-            HomeModel home = new HomeModel();
-
-            home.Nome = "Denis";
-            return View(home);
+            return View();
         }
 
-        public IActionResult Produtos()
-        {
-            return View();
-        }
-        public IActionResult Movimentacoes()
-        {
-            return View();
-        }
-        public IActionResult Fornecedores()
-        {
-            return View();
-        }
-        public IActionResult Dashboard()
+        public IActionResult Privacy()
         {
             return View();
         }
@@ -39,3 +23,4 @@ namespace ProjetoPaje.Controllers
         }
     }
 }
+

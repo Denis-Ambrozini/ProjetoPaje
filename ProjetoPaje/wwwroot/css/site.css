@@ -20,3 +20,32 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* Estilo para linhas de produtos com estoque baixo */
+.table-danger {
+    background-color: #f8d7da !important;
+    color: #721c24 !important;
+}
+
+.table-danger a {
+    color: #721c24 !important;
+}
+
+/* Melhorias gerais para formulários e tabelas */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.btn {
+    margin-right: 0.5rem;
+}
+
+h1 {
+    margin-bottom: 1.5rem;
+    color: #343a40;
+}
+
+.dl-horizontal dt {
+    white-space: normal;
+}
+
