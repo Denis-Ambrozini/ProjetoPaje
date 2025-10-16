@@ -1,35 +1,29 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-@model HomeModel
 
 <div class="container mt-4">
     <!-- Boas-vindas -->
     <div class="text-center mb-5">
-        <h1 class="display-5">Bem-vindo ao Sistema de Controle de Estoque, @Model.Nome</h1>
-        <p class="lead">Gerencie produtos, fornecedores e movimentações de forma simples e eficiente.</p>
+        <h1 class="display-5">Bem-vindo ao Sistema de Controle de Estoque</h1>
+        <p class="lead">Gerencie produtos e movimentações de forma simples e eficiente.</p>
     </div>
 
     <!-- Atalhos principais -->
     <div class="row text-center mb-5">
-        <div class="col-md-3 mb-3">
-            <a class="btn btn-primary w-100 py-3" asp-controller="Home" asp-action="Produtos">
-                <i class="bi bi-box-seam"></i> Cadastrar Produto
+        <div class="col-md-4 mb-3">
+            <a class="btn btn-primary w-100 py-3" asp-controller="Produtos" asp-action="Index">
+                <i class="bi bi-box-seam"></i> Gerenciar Produtos
             </a>
         </div>
-        <div class="col-md-3 mb-3">
-            <a class="btn btn-success w-100 py-3" asp-controller="Home" asp-action="Movimentacoes">
-                <i class="bi bi-arrow-down-circle"></i> Registrar Entrada
+        <div class="col-md-4 mb-3">
+            <a class="btn btn-success w-100 py-3" asp-controller="Movimentacoes" asp-action="Criar">
+                <i class="bi bi-arrow-down-up"></i> Registrar Movimentação
             </a>
         </div>
-        <div class="col-md-3 mb-3">
-            <a class="btn btn-danger w-100 py-3" asp-controller="Home" asp-action="Movimentacoes">
-                <i class="bi bi-arrow-up-circle"></i> Registrar Saída
-            </a>
-        </div>
-        <div class="col-md-3 mb-3">
-            <a class="btn btn-warning w-100 py-3" asp-controller="Home" asp-action="Dashboard">
-                <i class="bi bi-graph-up"></i> Relatórios
+        <div class="col-md-4 mb-3">
+            <a class="btn btn-warning w-100 py-3" asp-controller="Relatorios" asp-action="Index">
+                <i class="bi bi-graph-up"></i> Visualizar Relatórios
             </a>
         </div>
     </div>
@@ -39,7 +33,7 @@
         <div class="card-body">
             <h4 class="card-title">O que você pode fazer?</h4>
             <p class="card-text">
-                • Manter um cadastro atualizado de <strong>produtos</strong> e <strong>fornecedores</strong>.<br />
+                • Manter um cadastro atualizado de <strong>produtos</strong>.<br />
                 • Controlar entradas e saídas de estoque com rapidez.<br />
                 • Gerar <strong>relatórios</strong> detalhados para apoiar decisões.<br />
                 • Monitorar produtos em <strong>estoque mínimo</strong> com alertas visuais.<br />
@@ -47,3 +41,4 @@
         </div>
     </div>
 </div>
+
